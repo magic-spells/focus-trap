@@ -1,7 +1,5 @@
-(function (factory) {
-	typeof define === 'function' && define.amd ? define(factory) :
-	factory();
-})((function () { 'use strict';
+(function () {
+	'use strict';
 
 	/**
 	 * Retrieves all focusable elements within a given container.
@@ -223,5 +221,5 @@
 		});
 	});
 
-}));
+})();
 //# sourceMappingURL=focus-trap.js.map

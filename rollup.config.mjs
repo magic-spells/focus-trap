@@ -6,13 +6,12 @@ import copy from 'rollup-plugin-copy';
 const dev = process.env.ROLLUP_WATCH;
 
 export default [
-	// Development build (UMD)
+	// Development build
 	{
 		input: 'src/focus-trap.js',
 		output: {
 			file: 'dist/focus-trap.js',
-			format: 'umd',
-			name: 'MagicSpellsFocusTrap',
+			format: 'iife',
 			sourcemap: true,
 		},
 		plugins: [
@@ -25,16 +24,16 @@ export default [
 				}),
 			copy({
 				targets: [{ src: 'dist/focus-trap.js', dest: 'demo' }],
+				hook: 'writeBundle',
 			}),
 		],
 	},
-	// Production UMD (minified)
+	// Production build (minified)
 	{
 		input: 'src/focus-trap.js',
 		output: {
 			file: 'dist/focus-trap.min.js',
-			format: 'umd',
-			name: 'MagicSpellsFocusTrap',
+			format: 'iife',
 			sourcemap: true,
 		},
 		plugins: [
@@ -45,15 +44,5 @@ export default [
 				},
 			}),
 		],
-	},
-	// ESM build (unminified)
-	{
-		input: 'src/focus-trap.js',
-		output: {
-			file: 'dist/focus-trap.esm.js',
-			format: 'esm',
-			sourcemap: true,
-		},
-		plugins: [resolve()],
 	},
 ];

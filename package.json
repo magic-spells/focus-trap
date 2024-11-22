@@ -4,18 +4,17 @@
 	"description": "A customizable focus trap Web Component for managing keyboard focus within a container.",
 	"author": "Cory Schulz",
 	"license": "MIT",
-	"type": "module",
-	"module": "dist/focus-trap.esm.js",
+	"type": "commonjs",
 	"main": "dist/focus-trap.min.js",
 	"unpkg": "dist/focus-trap.min.js",
-	"sideEffects": false,
+	"sideEffects": true,
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/magic-spells/digital-potions"
+		"url": "https://github.com/magic-spells/focus-trap"
 	},
-	"homepage": "https://github.com/magic-spells/digital-potions#readme",
+	"homepage": "https://github.com/magic-spells/focus-trap#readme",
 	"bugs": {
-		"url": "https://github.com/magic-spells/digital-potions/issues"
+		"url": "https://github.com/magic-spells/focus-trap/issues"
 	},
 	"keywords": [
 		"focus-trap",
@@ -25,12 +24,6 @@
 		"keyboard-navigation",
 		"custom-elements"
 	],
-	"exports": {
-		".": {
-			"import": "./dist/focus-trap.esm.js",
-			"require": "./dist/focus-trap.min.js"
-		}
-	},
 	"files": [
 		"dist/",
 		"src/"
@@ -57,7 +50,6 @@
 		"eslint": "^8.0.0",
 		"prettier": "^3.3.3",
 		"rollup": "^3.0.0",
-		"rollup-plugin-copy": "^3.5.0",
 		"rollup-plugin-serve": "^1.1.1",
 		"globals": "^13.24.0",
 		"@eslint/js": "^8.57.0"
