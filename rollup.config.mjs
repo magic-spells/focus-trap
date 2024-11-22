@@ -12,7 +12,7 @@ export default [
 		output: {
 			file: 'dist/focus-trap.js',
 			format: 'iife',
-			sourcemap: true,
+			sourcemap: false,
 		},
 		plugins: [
 			resolve(),
@@ -34,7 +34,7 @@ export default [
 		output: {
 			file: 'dist/focus-trap.min.js',
 			format: 'iife',
-			sourcemap: true,
+			sourcemap: false,
 		},
 		plugins: [
 			resolve(),
