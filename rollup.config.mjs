@@ -12,7 +12,7 @@ export default [
 		output: {
 			file: 'dist/focus-trap.js',
 			format: 'iife',
-			sourcemap: false,
+			sourcemap: dev,
 		},
 		plugins: [
 			resolve(),
