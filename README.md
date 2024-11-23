@@ -17,6 +17,11 @@ A lightweight, customizable Web Component that traps keyboard focus within a con
 npm install @magic-spells/focus-trap
 ```
 
+```javascript
+// Add to your JavaScript file
+import '@magic-spells/focus-trap';
+```
+
 Or include directly in your HTML:
 
 ```html
