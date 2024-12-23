@@ -39,6 +39,8 @@ export default [
 		plugins: [
 			resolve(),
 			terser({
+				keep_classnames: true,
+				keep_fnames: false,
 				format: {
 					comments: false,
 				},
