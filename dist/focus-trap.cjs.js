@@ -1,3 +1,7 @@
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
 /**
  * Retrieves all focusable elements within a given container.
  *
@@ -191,9 +195,6 @@ customElements.define('focus-trap', FocusTrap);
 customElements.define('focus-trap-start', FocusTrapStart);
 customElements.define('focus-trap-end', FocusTrapEnd);
 
-export { FocusTrap, FocusTrapStart, FocusTrapEnd };
-export default FocusTrap;
-
 /**
  * Global keydown event listener.
  * Listens for the Enter key to trigger focus trapping on the associated panel.
@@ -220,3 +221,9 @@ document.addEventListener('keydown', function (e) {
 		trapStart.focus();
 	});
 });
+
+exports.FocusTrap = FocusTrap;
+exports.FocusTrapEnd = FocusTrapEnd;
+exports.FocusTrapStart = FocusTrapStart;
+exports.default = FocusTrap;
+//# sourceMappingURL=focus-trap.cjs.js.map

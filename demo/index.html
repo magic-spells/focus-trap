@@ -48,6 +48,18 @@
   <body>
     <h1>Focus Trap Demo</h1>
 
+    <p>
+      Tab to the button and press enter to open the modal panel. The
+      focus will transfer to the first focusable item in the modal
+      panel. If you tab through the elements the focus will cycle
+      through all of the elements in the panel and remain trapped
+      until you close the panel or press excape. If you press escape
+      the focus will be returned to the original element that it was
+      transferred from.
+    </p>
+
+    <p>I also added click events for the sake of the demo.</p>
+
     <button aria-controls="modal1" aria-expanded="false">
       Open Modal 1
     </button>
@@ -89,5 +101,33 @@
         <button>Close</button>
       </focus-trap>
     </div>
+
+    <script>
+      document.addEventListener('click', function (e) {
+        
+        const trigger = e.target.closest('[aria-controls]');
+        if (!trigger) return;
+
+        e.preventDefault();
+
+        // get panel ID from aria-controls attribute
+        const panelId = trigger.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+        // exit if no panel with that ID
+        if (!panel) return;
+        // exit if no focus trap start
+        const trapStart = panel.querySelector('focus-trap-start');
+        if (!trapStart) return;
+
+        // set aria states on trigger button and panel
+        trigger.setAttribute('aria-expanded', 'true');
+        panel.setAttribute('aria-hidden', 'false');
+
+        // set focus after DOM updates
+        requestAnimationFrame(() => {
+          trapStart.focus();
+        });
+      });
+    </script>
   </body>
 </html>

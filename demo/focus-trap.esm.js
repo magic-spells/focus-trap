@@ -191,9 +191,6 @@ customElements.define('focus-trap', FocusTrap);
 customElements.define('focus-trap-start', FocusTrapStart);
 customElements.define('focus-trap-end', FocusTrapEnd);
 
-export { FocusTrap, FocusTrapStart, FocusTrapEnd };
-export default FocusTrap;
-
 /**
  * Global keydown event listener.
  * Listens for the Enter key to trigger focus trapping on the associated panel.
@@ -220,3 +217,6 @@ document.addEventListener('keydown', function (e) {
 		trapStart.focus();
 	});
 });
+
+export { FocusTrap, FocusTrapEnd, FocusTrapStart, FocusTrap as default };
+//# sourceMappingURL=focus-trap.esm.js.map

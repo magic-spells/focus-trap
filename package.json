@@ -1,12 +1,20 @@
 {
 	"name": "@magic-spells/focus-trap",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A customizable focus trap Web Component for managing keyboard focus within a container.",
 	"author": "Cory Schulz",
 	"license": "MIT",
-	"type": "commonjs",
-	"main": "dist/focus-trap.min.js",
+	"type": "module",
+	"main": "dist/focus-trap.cjs.js",
+	"module": "dist/focus-trap.esm.js",
 	"unpkg": "dist/focus-trap.min.js",
+	"exports": {
+		".": {
+			"import": "./dist/focus-trap.esm.js",
+			"require": "./dist/focus-trap.cjs.js",
+			"default": "./dist/focus-trap.esm.js"
+		}
+	},
 	"sideEffects": true,
 	"repository": {
 		"type": "git",
