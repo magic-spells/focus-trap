@@ -209,7 +209,16 @@ document.addEventListener('keydown', function (e) {
 
 	const panelId = trigger.getAttribute('aria-controls');
 	const panel = document.getElementById(panelId);
+	// exit if no panel exists
 	if (!panel) return;
+
+	// if this is a modal panel or some other type of panel
+	if (panel.show != null) {
+		panel.setTriggerElement(trigger);
+		panel.show();
+		return;
+	}
+
 	const trapStart = panel.querySelector('focus-trap-start');
 	if (!trapStart) return;
 

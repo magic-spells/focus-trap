@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
     <title>Focus Trap Demo</title>
-    <script type="module" src="./focus-trap.js"></script>
+
     <style>
       body {
         background: #2f2e31;
@@ -102,9 +102,10 @@
       </focus-trap>
     </div>
 
+    <script type="module" src="./focus-trap.esm.js"></script>
+
     <script>
       document.addEventListener('click', function (e) {
-        
         const trigger = e.target.closest('[aria-controls]');
         if (!trigger) return;
 
