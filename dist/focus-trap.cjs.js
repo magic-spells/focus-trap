@@ -215,11 +215,11 @@ document.addEventListener('keydown', function (e) {
 
 	// if this is a modal panel or some other type of panel
 	if (panel.show != null) {
-		panel.setTriggerElement(trigger);
-		panel.show();
+		panel.show(trigger);
 		return;
 	}
 
+	// find focus trap start
 	const trapStart = panel.querySelector('focus-trap-start');
 	if (!trapStart) return;
 
