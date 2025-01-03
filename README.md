@@ -48,8 +48,6 @@ The focus trap will:
 
 - Automatically trap focus within the container
 - Cycle through focusable elements using Tab/Shift+Tab
-- Exit the trap when Escape is pressed
-- Return focus to the trigger element on exit
 
 ## Keyboard Navigation
 

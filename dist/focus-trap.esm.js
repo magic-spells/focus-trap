@@ -71,15 +71,21 @@ class FocusTrap extends HTMLElement {
 	 * Focuses the trap start element to initiate the focus trap.
 	 */
 	setupTrap() {
+		// check to see it there are any focusable children
 		const focusableElements = getFocusableElements(this);
+		// exit if there aren't any
 		if (focusableElements.length === 0) return;
 
+		// create trap start and end elements
 		this.trapStart = document.createElement('focus-trap-start');
 		this.trapEnd = document.createElement('focus-trap-end');
 
+		// add to DOM
 		this.prepend(this.trapStart);
 		this.append(this.trapEnd);
 
+		// set focus to trapStart which will transfer
+		// focus to first focusable element
 		requestAnimationFrame(() => {
 			this.trapStart.focus();
 		});
@@ -190,42 +196,4 @@ class FocusTrapEnd extends HTMLElement {
 customElements.define('focus-trap', FocusTrap);
 customElements.define('focus-trap-start', FocusTrapStart);
 customElements.define('focus-trap-end', FocusTrapEnd);
-
-/**
- * Global keydown event listener.
- * Listens for the Enter key to trigger focus trapping on the associated panel.
- *
- * @param {KeyboardEvent} e - The keyboard event object.
- */
-document.addEventListener('keydown', function (e) {
-	if (e.key !== 'Enter') return;
-	const trigger = e.target.closest('[aria-controls]');
-	if (!trigger) return;
-
-	e.preventDefault();
-
-	const panelId = trigger.getAttribute('aria-controls');
-	const panel = document.getElementById(panelId);
-	// exit if no panel exists
-	if (!panel) return;
-
-	// if this is a modal panel or some other type of panel
-	if (panel.show != null) {
-		panel.show(trigger);
-		return;
-	}
-
-	// find focus trap start
-	const trapStart = panel.querySelector('focus-trap-start');
-	if (!trapStart) return;
-
-	trigger.setAttribute('aria-expanded', 'true');
-	panel.setAttribute('aria-hidden', 'false');
-
-	requestAnimationFrame(() => {
-		trapStart.focus();
-	});
-});
-
-export { FocusTrap, FocusTrapEnd, FocusTrapStart, FocusTrap as default };
 //# sourceMappingURL=focus-trap.esm.js.map
