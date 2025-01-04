@@ -59,7 +59,7 @@ export default [
 						serve({
 							contentBase: ['dist', 'demo'],
 							open: true,
-							port: 3000,
+							port: 3001,
 						}),
 						copy({
 							targets: [

@@ -83,12 +83,6 @@ class FocusTrap extends HTMLElement {
 		// add to DOM
 		this.prepend(this.trapStart);
 		this.append(this.trapEnd);
-
-		// set focus to trapStart which will transfer
-		// focus to first focusable element
-		requestAnimationFrame(() => {
-			this.trapStart.focus();
-		});
 	}
 
 	/**
